@@ -34,8 +34,8 @@ In this section, you’ll use Python and SQLAlchemy to do a basic climate analys
 
 2. Design a query to find the most-active stations (that is, the stations that have the most rows). To do so, complete the following steps:
 
-        - List the stations and observation counts in descending order.
-        - Answer the following question: which station id has the greatest number of observations?
+      - List the stations and observation counts in descending order.
+      - Answer the following question: which station id has the greatest number of observations?
     
 3. Design a query that calculates the lowest, highest, and average temperatures that filters on the most-active station id found in the previous query.
    
