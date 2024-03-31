@@ -41,7 +41,8 @@ def home():
         f"/api/v1.0/precipitation<br/>"
         f"/api/v1.0/stations<br/>"
         f"/api/v1.0/tobs<br/>"
-        f"/api/v1.0/<start><br/>"
+        f"/api/v1.0/temp/start<br/>"
+        f"/api/v1.0/temp/start/end"
     )
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -85,7 +86,7 @@ def station():
     stations = [station[0] for station in stations_list]
 
     # Return JSON representation of the list
-    return jsonify(stations_list)
+    return jsonify(stations)
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------
 # 4. Query the dates and temperature observations of the most-active station for the previous year of data. 
@@ -122,7 +123,7 @@ def tobs():
 # 5. Return a JSON list of the minimum temperature, the average temperature, and the maximum temperature for a specified start or start-end range.
     # For a specified start, calculate TMIN, TAVG, and TMAX for all the dates greater than or equal to the start date.
 
-@app.route("/api/v1.0/<start>")
+@app.route("/api/v1.0/temp/<start>")
 def temp_range_start(start):
 
     # Create our session (link) from Python to the DB
@@ -140,7 +141,7 @@ def temp_range_start(start):
 
 
 # For a specified start date and end date, calculate TMIN, TAVG, and TMAX for the dates from the start date to the end date, inclusive.
-@app.route("/api/v1.0/<start>/<end>")
+@app.route("/api/v1.0/temp/<start>/<end>")
 def temp_range_start_end(start,end):
     
     # Create our session (link) from Python to the DB
